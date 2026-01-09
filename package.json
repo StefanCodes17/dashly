@@ -1,0 +1,86 @@
+{
+  "name": "dashly-react",
+  "version": "0.1.0",
+  "description": "Developer-first React dashboard library with built-in data layer. Build production-ready dashboards in minutes with declarative config-based API.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "ci": "pnpm typecheck && pnpm lint && pnpm test:coverage && pnpm build",
+    "prepublishOnly": "pnpm run ci",
+    "prepack": "pnpm build",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm build && changeset publish"
+  },
+  "keywords": [
+    "react",
+    "dashboard",
+    "charts",
+    "data-visualization",
+    "typescript",
+    "react-components",
+    "analytics",
+    "data-layer",
+    "kpi",
+    "metrics",
+    "admin-dashboard",
+    "internal-tools"
+  ],
+  "author": "Stefan Kolev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefankolev/dashly.git",
+    "directory": "lib"
+  },
+  "bugs": {
+    "url": "https://github.com/stefankolev/dashly/issues"
+  },
+  "homepage": "https://github.com/stefankolev/dashly#readme",
+  "packageManager": "pnpm@10.27.0",
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.62.14"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.29.8",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^5.1.2",
+    "@vitest/coverage-v8": "^4.0.16",
+    "@vitest/ui": "^4.0.16",
+    "happy-dom": "^20.1.0",
+    "jsdom": "^27.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "vitest": "^4.0.16"
+  }
+}

@@ -1,0 +1,46 @@
+# Source files
+src/
+*.test.ts
+*.test.tsx
+__tests__/
+__mocks__/
+
+# Config files
+tsconfig.json
+vitest.config.ts
+biome.json
+tsup.config.ts
+.eslintrc*
+.prettierrc*
+
+# Development
+examples/
+coverage/
+.vscode/
+.idea/
+*.log
+.DS_Store
+
+# Build artifacts
+*.tsbuildinfo
+.turbo/
+
+# Testing
+vitest.config.*
+.vitest/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Misc
+node_modules/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json

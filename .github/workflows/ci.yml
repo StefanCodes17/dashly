@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    name: Test & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: lib
+
+      - name: Run linter
+        run: pnpm lint
+        working-directory: lib
+
+      - name: Run type check
+        run: pnpm typecheck
+        working-directory: lib
+
+      - name: Run tests
+        run: pnpm test
+        working-directory: lib
+
+      - name: Build package
+        run: pnpm build
+        working-directory: lib
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./lib/coverage/lcov.info
+          flags: unittests
+          fail_ci_if_error: false
