@@ -14,17 +14,17 @@ A developer-first React dashboard library with a built-in data layer. Build prod
 ## Installation
 
 ```bash
-npm install @dashly/core
+npm install dashly-react
 # or
-pnpm add @dashly/core
+pnpm add dashly-react
 # or
-yarn add @dashly/core
+yarn add dashly-react
 ```
 
 ## Quick Start
 
 ```tsx
-import { Dashboard, type DashboardConfig } from '@dashly/core';
+import { Dashboard, type DashboardConfig } from 'dashly-react';
 
 const config: DashboardConfig = {
   widgets: [
